@@ -56,8 +56,6 @@ function loadEvents() {
 } // end of Events
 // ================================END OF JQUERY========================================================
 
-$(".scenario").load.fadeIn();
-
 // random number generator.
 function RandomNum() {
     let randomNumber = Math.floor((Math.random() * 5) * 1);
