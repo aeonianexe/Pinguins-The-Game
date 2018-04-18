@@ -4,6 +4,14 @@ $(document).ready(function () {
 
     if (width <= 400){
       alert("Use website in landscape mode in order to play.")
+      $("#scenario").css("font-size","14px");
+      $("#leftText").css("font-size","14px");
+      $("#rightText").css("font-size","14px");
+    }
+    if (width <= 1000){
+      $("#scenario").css("font-size","14px");
+      $("#leftText").css("font-size","14px");
+      $("#rightText").css("font-size","14px");
     }
     var isIE = /*@cc_on!@*/ false || !!document.documentMode;
     var isEdge = !isIE && !!window.StyleMedia;
