@@ -36,7 +36,7 @@
     height: 50%;
     background-color: cyan;
 }
-.scenario{
+#scenario{
   text-align: center;
   margin: auto;
   font-size: 2em;
