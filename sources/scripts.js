@@ -18,6 +18,7 @@ $(document).ready(function () {
     loadEvents();
 });
 
+
 function loadEvents() {
     $("#startGame").click(function () {
         $("#gameArea").fadeIn(2000); // game area fades in

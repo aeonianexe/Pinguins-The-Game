@@ -40,6 +40,7 @@
   text-align: center;
   margin: auto;
   font-size: 2em;
+
 }
 
 body {
@@ -64,6 +65,7 @@ Option on the left...
     border-radius: 25px;
     background-color: #474747;
     color: white;
+    overflow-y: scroll;
 }
 
 /*
@@ -75,6 +77,7 @@ Option on the right... NOT the CORRECT answer
     background-color: #474747;
     border-radius: 25px;
     color: white;
+    overflow-y: scroll;
 }
 
 #currentPlayer {
@@ -83,6 +86,7 @@ Option on the right... NOT the CORRECT answer
     background-size: 100% 100%;
     width: 20%;
     height: 50%;
+
 }
 
 /* Game area wont show until START button pressed */
