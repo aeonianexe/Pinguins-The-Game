@@ -95,7 +95,7 @@ Option on the right... NOT the CORRECT answer
     background-image: url('images/BackDrops/backdrop2.png');
     background-attachment: fixed;
     background-size: 100% 100%;
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 97%;
     overflow: hidden;
