@@ -39,7 +39,7 @@
 #scenario{
   text-align: center;
   margin: auto;
-  overflow-y:
+
 
 }
 
@@ -114,4 +114,5 @@ Option on the right... NOT the CORRECT answer
   bottom: 0;
   opacity: .9;
   color: white;
+    overflow-y: scroll;
 }
