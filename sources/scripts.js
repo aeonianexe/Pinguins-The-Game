@@ -2,6 +2,9 @@ $(document).ready(function () {
     var width = window.innerWidth; // gets the current window dith
     var height = window.innerHeight; // gets the current window height
 
+    if (width <= 400){
+      alert("Use website in landscape mode in order to play.")
+    }
     var isIE = /*@cc_on!@*/ false || !!document.documentMode;
     var isEdge = !isIE && !!window.StyleMedia;
 

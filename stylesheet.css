@@ -40,6 +40,7 @@
   text-align: center;
   margin: auto;
   font-size: 2em;
+  overflow-y: scroll;
 
 }
 
@@ -66,7 +67,6 @@ Option on the left...
     background-color: #474747;
     color: white;
     overflow-y: scroll;
-    font-size: 70%;
 }
 
 /*
