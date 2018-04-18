@@ -8,7 +8,7 @@ $(document).ready(function () {
       $("#leftText").css("font-size","14px");
       $("#rightText").css("font-size","14px");
     }
-    if (width <= 1000){
+    if (width <= 1080){
       $("#scenario").css("font-size","14px");
       $("#leftText").css("font-size","14px");
       $("#rightText").css("font-size","14px");
