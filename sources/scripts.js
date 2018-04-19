@@ -8,7 +8,7 @@ $(document).ready(function () {
     //  $("#leftText").css("font-size","14px");
     //  $("#rightText").css("font-size","14px");
       // alert('Width <= 400.')
-    }
+  //  }
     if (width <= 1000){
       $("#scenario").css("font-size","14px");
       $("#leftText").css("font-size","14px");
