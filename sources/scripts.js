@@ -2,12 +2,12 @@ $(document).ready(function () {
     var width = window.innerWidth; // gets the current window width
     var height = window.innerHeight; // gets the current window height
 
-    if (width <= 400){
-      alert("Use website in landscape mode in order to play.")
-      $("#scenario").css("font-size","14px");
-      $("#leftText").css("font-size","14px");
-      $("#rightText").css("font-size","14px");
-      alert('Width <= 400.')
+//    if (width <= 400){
+  //    alert("Use website in landscape mode in order to play.")
+    //  $("#scenario").css("font-size","14px");
+    //  $("#leftText").css("font-size","14px");
+    //  $("#rightText").css("font-size","14px");
+      // alert('Width <= 400.')
     }
     if (width <= 1000){
       $("#scenario").css("font-size","14px");
