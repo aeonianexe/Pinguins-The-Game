@@ -1,0 +1,104 @@
+* {
+    margin: auto;
+    box-sizing: border-box;
+}
+
+.leftSide {
+    position: fixed;
+    left: 0px;
+    top: 25%;
+}
+
+.rightSide {
+    position: fixed;
+    height: 50%;
+    right: 0px;
+}
+
+.middle {
+    top: 50%;
+}
+
+.centered {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: -50%, -50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+.dialogBox {
+    width: 25%;
+    height: 50%;
+}
+
+body {
+    background: #333333;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    color: white;
+}
+
+/*
+Option on the left...
+*/
+
+#leftChoice {
+    position: absolute;
+    opacity: 0.85;
+    border-radius: 25px;
+    background-color: #474747;
+    color: white;
+    overflow-y: scroll;
+}
+
+/*
+Option on the right... NOT the CORRECT answer
+*/
+
+#rightChoice {
+    opacity: 0.85;
+    background-color: #474747;
+    border-radius: 25px;
+    color: white;
+    overflow-y: scroll;
+}
+
+#currentPlayer {
+    background-image: url('images/Entities/player.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    width: 20%;
+    height: 50%;
+}
+
+/* Game area wont show until START button pressed */
+
+#gameArea {
+    background-image: url('images/BackDrops/backdrop2.png');
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    position: fixed;
+    width: 100%;
+    height: 97%;
+    overflow: hidden;
+    display: none;
+    background-color: gray;
+    padding-top: 3%;
+}
+
+#footer {
+    background-color: #474747;
+    width: 100%;
+    height: 25%;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.9;
+    color: white;
+    overflow-y: scroll;
+}
