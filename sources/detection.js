@@ -13,13 +13,25 @@ var isBlink = (isChrome || isOpera) && !!window.CSS;
 var width = window.innerWidth; // gets the current window width
 var height = window.innerHeight; // gets the current window height
 
-if (width <= 400){
-    $("#scenario").css("font-size","14px");
-    $("#leftText").css("font-size","14px");
-    $("#rightText").css("font-size","14px");
-   }
-   if (width <= 900){
-     $("#scenario").css("font-size","14px");
-     $("#leftText").css("font-size","14px");
-     $("#rightText").css("font-size","14px");
-   }
+// ignore all of the above stuffs
+
+
+
+$(document).ready(function () {
+    // Mobile support. eh
+    if (width <= 400) {
+        $("#scenario").css("font-size", "14px");
+        $("#leftText").css("font-size", "14px");
+        $("#rightText").css("font-size", "14px");
+    }
+    if (width <= 1000) {
+        $("#scenario").css("font-size", "14px");
+        $("#leftText").css("font-size", "14px");
+        $("#rightText").css("font-size", "14px");
+    }
+    if (isIE || isEdge) {
+        $('body').remove();
+        alert("You're forbidden to use IE Edge on this site. Stop it, use chrome");
+        $('head').remove();
+    }
+});
