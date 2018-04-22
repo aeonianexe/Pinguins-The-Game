@@ -5,18 +5,23 @@
 
 .leftSide {
     position: fixed;
-    left: 0px;
-    top: 25%;
+    left: 1em;
+    height: 50%;
 }
 
 .rightSide {
     position: fixed;
+    right: 1em;
     height: 50%;
-    right: 0px;
 }
 
 .middle {
     top: 50%;
+}
+
+#startGame {
+    cursor: pointer;
+    font-size:50px;
 }
 
 .centered {
@@ -33,11 +38,11 @@
 .dialogBox {
     width: 25%;
     height: 50%;
+    font-size: 1em;
 }
 
 body {
     background: #333333;
-    font-family: Arial, Helvetica, sans-serif;
     text-align: center;
     color: white;
 }
@@ -47,12 +52,13 @@ Option on the left...
 */
 
 #leftChoice {
-    position: absolute;
+    position: fixed;
     opacity: 0.85;
     border-radius: 25px;
     background-color: #474747;
     color: white;
-    overflow-y: scroll;
+    overflow-y: auto;
+    cursor: pointer;
 }
 
 /*
@@ -64,7 +70,8 @@ Option on the right... NOT the CORRECT answer
     background-color: #474747;
     border-radius: 25px;
     color: white;
-    overflow-y: scroll;
+    overflow-y: auto;
+    cursor: pointer;
 }
 
 #currentPlayer {
@@ -73,6 +80,7 @@ Option on the right... NOT the CORRECT answer
     background-size: 100% 100%;
     width: 20%;
     height: 50%;
+    cursor: pointer;
 }
 
 /* Game area wont show until START button pressed */
@@ -86,19 +94,25 @@ Option on the right... NOT the CORRECT answer
     height: 97%;
     overflow: hidden;
     display: none;
-    background-color: gray;
+    background-color: black;
     padding-top: 3%;
 }
 
+#story {
+    font-size:1em;
+    padding: 2px;
+}
+
+
+
 #footer {
     background-color: #474747;
-    width: 100%;
-    height: 25%;
+    width: 70%;
+    height: 20%;
     position: fixed;
     left: 0;
     right: 0;
     bottom: 0;
-    opacity: 0.9;
+    opacity: 0.8;
     color: white;
-    overflow-y: scroll;
 }

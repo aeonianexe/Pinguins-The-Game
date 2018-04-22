@@ -1,8 +1,10 @@
-var scenarioText = [];
-var scenarioTextLost = [];
-var userOptions = [];
-var randomEncounterText = [];
-var stage = 0;
+let scenarioText = [];
+let scenarioTextLost = [];
+let userOptions = [];
+let randomEncounterText = [];
+let stage = 0;
+
+let lives = 3; // this can change depending on what we want the health system to be
 
 // scenario text
 scenarioText[0] = "As the sun rises on the island, the pinguins discover that they are far away from home; they notice that all of their penguin friends are gone- They are alone.";
@@ -16,6 +18,14 @@ scenarioText[2] = "The pinguins manage to find an igloo stocked with food. But n
 // find home
 scenarioText[3] = "The Penguins have decided to make their way home. While trying to get an idea of where they are, they encounter a polar bear who is weak and hungry.";
 
+// find igloo
+scenarioText[4] = "The pinguins manage to find an igloo stocked with fish, but no other pinguins";
+
+// polar
+scenarioText[5] = "The pinguins find a vegan polar bear and asks for ride. Click on the polar bear to continue the story.";
+
+// polar bear drive by
+scenarioText[6] = "The polar bear is so happy that he offers to let the penguins hitch a ride on his back to helpl them in their journey";
 
 // all text that includes pinguins brutal demise
 scenarioTextLost[0] = "The pinguins eventually get tired and can no longer find any way to survive. You lose.";
@@ -25,12 +35,9 @@ scenarioTextLost[3] = "The pinguins avoid the sharks, but a whale swallows the b
 scenarioTextLost[4] = "They call for help to the pinguins on their home island, hoping someguin will hear, but noguin did. They never made it home. You lose.";
 scenarioTextLost[5] = "The pinguins didn't make it. You lose.";
 
-// all random encounter dialog here
-randomEncounterText[0] = "Encounters polar bear and asks for ride.";
-
 
 // choices user can make
-userOptions[0] = "Make a new life";
+userOptions[0] = "Live a new life";
 userOptions[1] = "Try to find other Penguins"; // leads to a random encounter
 userOptions[2] = "Keep Looking for Penguins"; // leads to a random encounter
 userOptions[3] = "Try to go home instead";
@@ -58,17 +65,50 @@ function loadEvents() {
 
     $("#leftChoice").click(function () {
         switch (stage) {
-            case 0:
+            case 0: // first selection
                 $("#leftText").text(userOptions[1]);
                 $("#rightText").text(userOptions[4]);
-                $("#scenario").text(scenarioText[1]);
+                $("#story").text(scenarioText[1]);
                 stage = 1;
                 break;
-            case 1:
+            case 1: // second selection
+                $("#leftText").text(userOptions[2]);
+                $("#rightText").text(userOptions[4]);
+                $("#story").text(scenarioText[2]);
+                stage = 2;
+                break;
+            case 2: // third selection
+                $("#leftText").text(userOptions[2]);
+                $("#rightText").text(userOptions[3]);
+                $("#story").text(scenarioText[4]);
+                stage = 3;
+                break;
+            case 3: // fourth selection
+                // if less than 50 player loses       
+                if (RandomNum() > 50) {
+                    $("#leftChoice, #rightChoice, #currentPlayer").fadeOut(2000);
+                    $("#story").text(scenarioTextLost[0]);
+                } else {
+                    // travel to iceberg
+                    $("#leftChoice, #rightChoice").fadeOut(2000);
+                    $("#currentPlayer").css("background-image", "url('images/Entities/PolarBear.png')");
+                    $("#story").text(scenarioText[5]);
+
+                    // user clicks on polar bear
+                    $("#currentPlayer").click(function () {
+                        $("#currentPlayer").css("background-image", "url('images/Entities/player.png')");
+                        $("#gameArea").css("background-image", "url('images/BackDrops/backdrop3.png')");
+                        $("#leftChoice, #rightChoice").fadeIn();
+                        $("#story").text(scenarioText[6]);
+                        stage = 4;
+                    });
+
+                }
+                break;
+            case 4: // iceberg event
                 $("#leftText").text(userOptions[1]);
                 $("#rightText").text(userOptions[4]);
-                $("#scenario").text(scenarioText[5]);
-                stage = 2;
+                $("#story").text(scenarioText[6]);
                 break;
         }
     });
@@ -77,24 +117,18 @@ function loadEvents() {
             case 0:
                 $("#leftText").text(userOptions[1]);
                 $("#rightText").text(userOptions[4]);
-                $("#scenario").text(scenarioText[3]);
+                $("#story").text(scenarioText[3]);
                 stage = 1;
                 break;
 
             case 1:
                 $("#leftText").text(userOptions[1]);
                 $("#rightText").text(userOptions[4]);
-                $("#scenario").text(scenarioText[3]);
+                $("#story").text(scenarioText[3]);
+
                 stage = 2;
                 break;
         }
-    });
-
-
-
-
-    $("#currentPlayer").click(function () {
-        $("#event").text("Did you seriously click the penguin...?");
     });
 
 } // end of Events
@@ -102,15 +136,6 @@ function loadEvents() {
 
 // random number generator.
 function RandomNum() {
-    let percentage = Math.floor((Math.random() * 100) * 1); // calculates the chance of an event happening
-    return percentage;
-}
-
-function hunting() {
-    if(percentage <= 50){
-        console.log("Penguins have found food!");
-    }
-    else {
-        console.log("Penguins couldnt find food");
-    }
+    let chance = Math.floor((Math.random() * 100) * 1); // calculates the chance of an event happening
+    return chance;
 }

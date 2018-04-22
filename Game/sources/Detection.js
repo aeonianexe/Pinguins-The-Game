@@ -10,6 +10,7 @@ var isIE = /*@cc_on!@*/ false || !!document.documentMode;
 var isEdge = !isIE && !!window.StyleMedia;
 var isChrome = !!window.chrome && !!window.chrome.webstore;
 var isBlink = (isChrome || isOpera) && !!window.CSS;
+
 var width = window.innerWidth; // gets the current window width
 var height = window.innerHeight; // gets the current window height
 
