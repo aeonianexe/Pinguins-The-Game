@@ -108,7 +108,7 @@ scenarioTextLost[4] = "They call for help to the pinguins on their home island, 
 scenarioTextLost[5] = "TThe pinguins put forth their best effort, but were killed by all the trash. You lose.";
 
 // all random encounter dialog here
-randomEncounterText[0] = "Encounters polar bear and asks for ride.";
+randomEncounterText[0] = "The pinguins encounter a polar bear and ask for ride. Click the polar bear to continue";
 randomEncounterText[1] = "The boat breaks!";
 randomEncounterText[2] = "The boat survives!";
 
@@ -170,7 +170,7 @@ function loadEvents() {
 
     $("#leftChoice").click(function () {
         switch (stage) {
-            case 0: // first selection
+            case 0:
                 $("#leftText").text(userOptions[1]);
                 $("#rightText").text(userOptions[4]);
                 $("#story").text(scenarioText[1]);
@@ -178,12 +178,12 @@ function loadEvents() {
                 break;
             case 1: // second selection
                 $("#leftText").text(userOptions[2]);
-                $("#rightText").text(userOptions[4]);
+                $("#rightText").text(userOptions[3]);
                 $("#story").text(scenarioText[2]);
-                stage = 2;
+                stage = 3;
                 break;
             case 2: // third selection
-                $("#leftText").text(userOptions[2]);
+                $("#leftText").text(userOptions[6]);
                 $("#rightText").text(userOptions[3]);
                 $("#story").text(scenarioText[4]);
                 stage = 3;
@@ -197,24 +197,45 @@ function loadEvents() {
                     // travel to iceberg
                     $("#leftChoice, #rightChoice").fadeOut(2000);
                     $("#currentPlayer").css("background-image", "url('images/Entities/PolarBear.png')");
-                    $("#story").text(scenarioText[5]);
+                    $("#story").text(randomEncounterText[0]);
 
                     // user clicks on polar bear
                     $("#currentPlayer").click(function () {
                         $("#currentPlayer").css("background-image", "url('images/Entities/player.png')");
                         $("#gameArea").css("background-image", "url('images/BackDrops/backdrop3.png')");
                         $("#leftChoice, #rightChoice").fadeIn();
-                        $("#story").text(scenarioText[6]);
+                        $("#story").text(scenarioText[9]);
+                        $("#leftText").text(userOptions[13]);
+                        $("#rightText").text(userOptions[14]);
                         stage = 4;
                     });
 
                 }
                 break;
-            case 4: // iceberg event
-                $("#leftText").text(userOptions[1]);
-                $("#rightText").text(userOptions[4]);
-                $("#story").text(scenarioText[6]);
+            case 4:
+                $("#leftText").text(userOptions[16]);
+                $("#rightText").text(userOptions[17]);
+                $("#story").text(scenarioText[12]);
+                stage = 5;
                 break;
+            case 5:
+                $("#leftText").text(userOptions[15]);
+                $("#rightText").text(userOptions[20]);
+                $("#story").text(scenarioText[14]);
+                stage = 6;
+                break;
+            case 6:
+                $("#leftText").text(userOptions[18]);
+                $("#rightText").text(userOptions[19]);
+                $("#story").text(scenarioText[16]);
+                stage = 7;
+                break;
+            case 7:
+                $("#leftChoice, #currentPlayer, #rightChoice").fadeOut(2000);
+                $("#gameArea").css("background-image", "url('images/Entities/shark.png')");
+                $("#story").text(scenarioTextLost[1]);
+                break;
+
         }
     });
     $("#rightChoice").click(function () {
