@@ -96,7 +96,7 @@ scenarioText[27]="The penguins decide they're going to rest a big on the next ic
 // made it home
 scenarioText[29]="The pinguins made it home covered in trash!";
 //abandon Bear
-scenarioText[31] = "The penguins were too worried about getting home, they didn't have time to help the polar bear. They never see the polar bear again."
+scenarioText[31] = "The penguins were too worried about getting home, they didn't have time to help the polar bear. They never see the polar bear again.Now what do they do?"
 
 
 
@@ -249,6 +249,7 @@ function loadEvents() {
                 stage = 1;
                 break;
             case 1:
+                $("#currentPlayer").css("background-image", "url('images/Entities/player.png')");
                 $("#leftText").text(userOptions[13]);
                 $("#rightText").text(userOptions[14]);
                 $("#story").text(scenarioText[31]);
