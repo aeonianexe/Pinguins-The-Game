@@ -95,7 +95,8 @@ scenarioText[25] = "The pinguins decide to just swim. These pinguins like to tak
 scenarioText[27]="The penguins decide they're going to rest a big on the next iceberg. They can see their home not too far in the distance. After waddling around, they discover that the water between them and their home is full of pollution. Plastic Rings from soda cans, plastic bags, and so much trash. It would be almost impossible to swim through, but they have to do it. They have to find a way home.";
 // made it home
 scenarioText[29]="The pinguins made it home covered in trash!";
-
+//abandon Bear
+scenarioText[31] = "The penguins were too worried about getting home, they didn't have time to help the polar bear. They never see the polar bear again."
 
 
 
