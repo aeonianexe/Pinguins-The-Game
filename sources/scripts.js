@@ -241,19 +241,20 @@ function loadEvents() {
     $("#rightChoice").click(function () {
         switch (stage) {
             case 0:
-                $("#leftText").text(userOptions[1]);
-                $("#rightText").text(userOptions[4]);
+                $("#currentPlayer").css("background-image", "url('images/Entities/PolarBear.png')");
+                $("#leftText").text(userOptions[10]);
+                $("#rightText").text(userOptions[5]);
                 $("#story").text(scenarioText[3]);
                 stage = 1;
                 break;
-
             case 1:
-                $("#leftText").text(userOptions[1]);
-                $("#rightText").text(userOptions[4]);
-                $("#story").text(scenarioText[3]);
-
+                $("#leftText").text(userOptions[13]);
+                $("#rightText").text(userOptions[14]);
+                $("#story").text(scenarioText[31]);
                 stage = 2;
                 break;
+              case 2:
+
         }
     });
 
