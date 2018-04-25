@@ -219,7 +219,6 @@ function loadEvents() {
                 stage = 3
                 break;
             case 3:
-                $("#currentPlayer").css("background-image", "url('images/Entities/player.png')");
                 changeText(left = 13, right = 14, story = 31);
                 break;
         }
