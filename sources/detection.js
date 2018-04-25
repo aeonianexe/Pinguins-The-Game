@@ -1,5 +1,5 @@
-let width = window.innerWidth;
-let height = window.innerHeight;
+var width = window.innerWidth; // gets the current window width
+var height = window.innerHeight; // gets the current window height
 
 var isOpera = (!!window.opr && !!opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
 var isFirefox = typeof InstallTrigger !== 'undefined';
@@ -10,11 +10,6 @@ var isIE = /*@cc_on!@*/ false || !!document.documentMode;
 var isEdge = !isIE && !!window.StyleMedia;
 var isChrome = !!window.chrome && !!window.chrome.webstore;
 var isBlink = (isChrome || isOpera) && !!window.CSS;
-var width = window.innerWidth; // gets the current window width
-var height = window.innerHeight; // gets the current window height
-
-// ignore all of the above stuffs
-
 
 
 $(document).ready(function () {
@@ -29,7 +24,7 @@ $(document).ready(function () {
         $("#leftText").css("font-size", "14px");
         $("#rightText").css("font-size", "14px");
     }
-    if (isIE || isEdge) {
+    if (isIE || isEdge) { // zero tolerance for edgers and iexplorers
         $('body').remove();
         alert("You're forbidden to use IE Edge on this site. Stop it, use chrome");
         $('head').remove();
