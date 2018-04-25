@@ -1,4 +1,4 @@
-//detection doesn't work unless it's in this file... Andy *cough* :P 
+//detection doesn't work unless it's in this file... Andy *cough* :P
 
 var width = window.innerWidth; // gets the current window width
 var height = window.innerHeight; // gets the current window height
@@ -53,7 +53,7 @@ function addText() {
     //hunting and shark
     scenarioText[4] = "The pinguins have decided to go hunting in the water. They encounter a shark and get injured. What now?";
     //polar bear Encounters
-    scenarioText[6] = "The pinguins encounter a polar bear while searching for other pinguins. They decide to ask the polar bear for a ride!";
+    scenarioText[6] = "The pinguins encounter a polar bear while searching for other pinguins. They decide to ask the polar bear for a ride! Click your pinguin to continue.";
     //find food
     scenarioText[7] = "The pinguins had a successful hunt! They have food!";
     //hungry and keep food
@@ -111,7 +111,7 @@ function addText() {
     scenarioTextLost[5] = "TThe pinguins put forth their best effort, but were killed by all the trash. You lose.";
 
     // all random encounter dialog here
-    randomEncounterText[0] = "The pinguins encounter a polar bear and ask for ride.";
+    randomEncounterText[0] = "The pinguins encounter a polar bear and ask for ride. Click your pinguin to continue.";
     randomEncounterText[1] = "The boat breaks!";
     randomEncounterText[2] = "The boat survives!";
 
@@ -163,6 +163,7 @@ $(document).ready(function () {
 function loadEvents() {
     $("#startGame").click(function () {
       $("#auntArctic").click(function () {
+
           $("#gameArea").fadeIn(2000); // game area fades in
           $("#startGame").remove(); // removes the filter
           $("#gameArea").append('<audio autoplay="true" src="sources/sounds/Sled.mp3" type="audio/mpeg"></audio>');
@@ -216,12 +217,12 @@ function loadEvents() {
                 } else {
                     // travel to iceberg
                     $("#leftChoice, #rightChoice").fadeOut();
-                    $("#currentPlayer").css("background-image", "url('images/Entities/PolarBear.png')");
+
                     $("#story").text(randomEncounterText[0]);
 
                     // user clicks on polar bear
                     $("#currentPlayer").click(function () {
-                        $("#currentPlayer").css("background-image", "url('images/Entities/player.png')");
+
                         $("#gameArea").css("background-image", "url('images/BackDrops/backdrop3.png')");
                         $("#leftChoice, #rightChoice").fadeIn();
 
@@ -252,7 +253,7 @@ function loadEvents() {
     $("#rightChoice").click(function () {
         switch (stage) {
             case 0: // first checkpoint(right)
-                $("#currentPlayer").css("background-image", "url('images/Entities/PolarBear.png')");
+
                 changeText(left = 10, right = 5, story = 3);
 
                 $("#leftText").click(function () {
@@ -266,7 +267,7 @@ function loadEvents() {
                 stage = 3
                 break;
             case 3:
-                $("#currentPlayer").css("background-image", "url('images/Entities/player.png')");
+
                 changeText(left = 13, right = 14, story = 31);
                 break;
         }
