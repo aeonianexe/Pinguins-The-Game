@@ -34,6 +34,10 @@ $(document).ready(function () {
     }
 });
 
+var player;
+
+
+
 var scenarioText = [];
 var scenarioTextLost = [];
 var userOptions = [];
@@ -155,12 +159,30 @@ $(document).ready(function () {
 
 
 function loadEvents() {
-    $("#startGame").click(function () {
+    $("#auntArctic").click(function () {
         $("#gameArea").fadeIn(2000); // game area fades in
         $("#startGame").remove(); // removes the filter
-         $("#gameArea").append('<audio autoplay="true" src="sources/sounds/Sled.mp3" type="audio/mpeg"></audio>');
+        $("#gameArea").append('<audio autoplay="true" src="sources/sounds/Sled.mp3" type="audio/mpeg"></audio>');
+        $("#currentPlayer").css("background-image", "url('images/Entities/aunt.png')");
     });
-
+    $("#wendyWaddle").click(function () {
+        $("#gameArea").fadeIn(2000); // game area fades in
+        $("#startGame").remove(); // removes the filter
+        $("#gameArea").append('<audio autoplay="true" src="sources/sounds/Sled.mp3" type="audio/mpeg"></audio>');
+        $("#currentPlayer").css("background-image", "url('images/Entities/wendy.png')");
+    });
+    $("#edwardSnow").click(function () {
+        $("#gameArea").fadeIn(2000); // game area fades in
+        $("#startGame").remove(); // removes the filter
+        $("#gameArea").append('<audio autoplay="true" src="sources/sounds/Sled.mp3" type="audio/mpeg"></audio>');
+        $("#currentPlayer").css("background-image", "url('images/Entities/edward.png')");
+    });
+    $("#frankFishy").click(function () {
+        $("#gameArea").fadeIn(2000); // game area fades in
+        $("#startGame").remove(); // removes the filter
+        $("#gameArea").append('<audio autoplay="true" src="sources/sounds/Sled.mp3" type="audio/mpeg"></audio>');
+        $("#currentPlayer").css("background-image", "url('images/Entities/frank.png')");
+    });
 
 
     $("#leftChoice, #rightChoice").hover(function () {

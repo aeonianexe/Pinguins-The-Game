@@ -13,18 +13,34 @@
 
 <body>
 
-    <h1 id="startGame" class="centered">Start Game</h1>
 <h3 id="event">Welcome To Pinguins </h3>
+<div class = "playerCards" id = "startGame">
+    <div class = "playerLeft" id = "auntArctic">
+      <img src="images/Entities/aaSelect.png">
+    </div>
+    <div class = "playerLeft" id = "edwardSnow">
+        <img src="images/Entities/esSelection.png">
+    </div>
+    <br/>
+    <h1 class "centered"> Select a Pinguin to Begin! </h1>
+    <div class = "playerRight" id = "frankFishy">
+        <img src="images/Entities/ffSelection.png">
+     </div>
+    <div class = "playerRight" id = "wendyWaddle">
+      <img src="images/Entities/wwSelection.png">
+    </div>
+</div>
+
     <div id="gameArea">
 
         <div id="leftChoice" class="leftSide, dialogBox">
+
             <h1>Selection #1</h1>
             <p id = "leftText">
                 Leave their friends, their family, and their waddle behind? Absolutely not. We only have faithful penguins here. The penguins should try to make their way home!
             </p>
         </div>
         <div id="currentPlayer" class="centered"></div>
-
         <div id="rightChoice" class="rightSide dialogBox">
             <h1>Selection #2</h1>
             <p id = "rightText">Why bother trying to go back home? That's a hassle and penguins are lazy. The penguins should try to make a new life on the island!</p>

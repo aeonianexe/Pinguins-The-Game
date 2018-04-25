@@ -34,6 +34,22 @@
     width: 25%;
     height: 50%;
 }
+.playerCards{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: -50%, -50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+.playerRight{
+  float: left;
+}
+.playerLeft{
+  float: left;
+}
 p {
     padding: 2px;
     font-size: 1.5em;
@@ -70,6 +86,9 @@ Option on the right... NOT the CORRECT answer
     color: white;
     overflow-y: scroll;
 }
+
+
+
 
 #currentPlayer {
     background-image: url('images/Entities/player.png');
