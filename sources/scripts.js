@@ -1,5 +1,3 @@
-
-
 var scenarioText = [];
 var scenarioTextLost = [];
 var userOptions = [];
@@ -118,19 +116,14 @@ function addText() {
     userOptions[26] = "Call for help";
     userOptions[27] = "Take the risk and swim";
 }
-
 // ========================================================================= Jquery starts here
-
 $(document).ready(function () {
     loadEvents();
     addText(); // this is so we can just collapse the huge mass of selections, and stuff
 });
-
-
 function loadEvents() {
     $("#startGame").click(function () {
       $("#auntArctic").click(function () {
-
           $("#gameArea").fadeIn(2000); // game area fades in
           $("#startGame").remove(); // removes the filter
           $("#gameArea").append('<audio autoplay="true" src="sources/sounds/Sled.mp3" type="audio/mpeg"></audio>');
@@ -160,7 +153,6 @@ function loadEvents() {
             $(this).fadeTo(500, 0.8); // else fade back to normal
         });
     });
-
     $("#leftChoice").click(function () {
         switch (stage) {
             case 0: // intro checkpoint
@@ -170,7 +162,6 @@ function loadEvents() {
                 break;
             case 1: // second checkpoint(left)
                 stage = 3;
-
                 changeText(left = 2, right = 3, story = 2);
                 break;
             case 2: // third checkpoint(left)
@@ -184,15 +175,11 @@ function loadEvents() {
                 } else {
                     // travel to iceberg
                     $("#leftChoice, #rightChoice").fadeOut();
-
                     $("#story").text(randomEncounterText[0]);
-
                     // user clicks on polar bear
                     $("#currentPlayer").click(function () {
-
                         $("#gameArea").css("background-image", "url('images/BackDrops/backdrop3.png')");
                         $("#leftChoice, #rightChoice").fadeIn();
-
                         changeText(left = 9, right = 13, story = 14);
                     });
                 }
@@ -214,7 +201,6 @@ function loadEvents() {
                 $("#gameArea").css("background-image", "url('images/Entities/shark.png')");
                 $("#story").text(scenarioTextLost[1]);
                 break;
-
         }
     });
     $("#rightChoice").click(function () {
@@ -230,7 +216,6 @@ function loadEvents() {
                         console.log("food--");
                     }
                 });
-
                 stage = 3
                 break;
             case 3:
@@ -242,20 +227,15 @@ function loadEvents() {
 
 } // end of Events
 // ================================ END OF THAT MESS ================================
-
 // random number generator.
 function RandomNum() {
     let chance = Math.floor((Math.random() * 100) * 1); // calculates the chance of an event happening
     return chance;
 }
-
 function playerDeath() {
     $("#leftChoice, #currentPlayer, #rightChoice").fadeOut(2000);
 }
-
-///
-/// changes text to this specific value in array
-///
+// changes text to this specific value in array
 function changeText(left, right, story) {
 
     // does not include scenarios where player loses
