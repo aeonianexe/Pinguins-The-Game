@@ -1,18 +1,3 @@
-//detection doesn't work unless it's in this file... Andy *cough* :P
-
-var width = window.innerWidth; // gets the current window width
-var height = window.innerHeight; // gets the current window height
-
-var isOpera = (!!window.opr && !!opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
-var isFirefox = typeof InstallTrigger !== 'undefined';
-var isSafari = /constructor/i.test(window.HTMLElement) || (function (p) {
-    return p.toString() === "[object SafariRemoteNotification]";
-})(!window['safari'] || (typeof safari !== 'undefined' && safari.pushNotification));
-var isIE = /*@cc_on!@*/ false || !!document.documentMode;
-var isEdge = !isIE && !!window.StyleMedia;
-var isChrome = !!window.chrome && !!window.chrome.webstore;
-var isBlink = (isChrome || isOpera) && !!window.CSS;
-
 
 $(document).ready(function () {
     // Mobile support. eh
@@ -203,7 +188,6 @@ function loadEvents() {
                 break;
             case 1: // second checkpoint(left)
                 stage = 3;
-
                 changeText(left = 2, right = 3, story = 2);
                 break;
             case 2: // third checkpoint(left)
@@ -217,15 +201,11 @@ function loadEvents() {
                 } else {
                     // travel to iceberg
                     $("#leftChoice, #rightChoice").fadeOut();
-
                     $("#story").text(randomEncounterText[0]);
-
-                    // user clicks on polar bear
+                    // user clicks on pinguin
                     $("#currentPlayer").click(function () {
-
                         $("#gameArea").css("background-image", "url('images/BackDrops/backdrop3.png')");
                         $("#leftChoice, #rightChoice").fadeIn();
-
                         changeText(left = 9, right = 13, story = 14);
                     });
                 }
