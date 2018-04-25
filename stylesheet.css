@@ -30,18 +30,14 @@
     height: 50%;
 }
 .playerCards{
-  position: fixed;
   top: 50%;
   left: 50%;
-  transform: -50%, -50%;
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
+  display:inline-block;
 }
-.playerLeft{
-  float: right;
+.player{
+  float: left;
 }
+
 #story{
   font-size: 1.5em;
 }
@@ -79,7 +75,6 @@ Option on the right... NOT the CORRECT answer
     font-size: 1.5em;
 }
 #currentPlayer {
-    background-image: url('images/Entities/player.png');
     background-repeat: no-repeat;
     background-size: 100% 100%;
     width: 20%;
