@@ -14,14 +14,13 @@ var isBlink = (isChrome || isOpera) && !!window.CSS;
 
 $(document).ready(function () {
     // Mobile support. eh
+    alert("If you are on a mobile device, please use this site in landscape mode.");
     if (width <= 400) {
-      alert("If you are on a mobile device, please use this site in landscape mode.");
         $("#scenario").css("font-size", "14px");
         $("#leftText").css("font-size", "14px");
         $("#rightText").css("font-size", "14px");
     }
     if (width <= 1000) {
-      alert("If you are on a mobile device, please use this site in landscape mode.");
         $("#scenario").css("font-size", "14px");
         $("#leftText").css("font-size", "14px");
         $("#rightText").css("font-size", "14px");
