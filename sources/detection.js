@@ -15,12 +15,16 @@ var isBlink = (isChrome || isOpera) && !!window.CSS;
 $(document).ready(function () {
     // Mobile support. eh
     if (width <= 400) {
-        $("#scenario").css("font-size", "14px");
+        $("#choiceTitle").css("font-size", "20px");
+        $("#choiceTitleTwo").css("font-size", "20px");
+        $("#story").css("font-size", "14px");
         $("#leftText").css("font-size", "14px");
         $("#rightText").css("font-size", "14px");
     }
     if (width <= 1000) {
-        $("#scenario").css("font-size", "14px");
+        $("#choiceTitle").css("font-size", "20px");
+        $("#choiceTitleTwo").css("font-size", "20px");
+        $("#story").css("font-size", "14px");
         $("#leftText").css("font-size", "14px");
         $("#rightText").css("font-size", "14px");
     }

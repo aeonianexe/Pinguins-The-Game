@@ -50,6 +50,9 @@ body {
     text-align: center;
     color: white;
 }
+#choiceTitle{
+  font-size: 2em;
+}
 /*
 Option on the left...
 */
