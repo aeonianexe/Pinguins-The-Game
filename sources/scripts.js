@@ -196,18 +196,21 @@ function getStage(stageID)
         case 2:
             if(RandomNum() >= 50)
             {
-            playerDeath();
-            return { isdead : true,
-                sceneText : scenarioTextLost[0]}
-            }
-            levelTwoBackgroundSwap()
+                playerDeath();
+                return {
+                    sceneText : scenarioTextLost[0]
+                };
+            } else {
+            levelTwoBackgroundSwap();
             return {
               sceneText : getSceneText(1, 8),
               optionLeft : getOptionText(2, 13) ,
               optionRight : getOptionText(2, 14),
-              optionLeftNext : 3,
-              optionLeftNext : 5
+              optionLeftNext : 5,
+              optionRightNext : 3
             };
+        }
+
 
         case 3: return {
             sceneText : getSceneText(2, 5) ,
@@ -224,7 +227,7 @@ function getStage(stageID)
             optionRightNext : 6
         };
         case 5:
-          levelTwoBackgroundSwap()
+          levelTwoBackgroundSwap();
         return {
 
             sceneText : getSceneText(2, 6) ,
@@ -333,7 +336,7 @@ function getStage(stageID)
     }
 
 function characterSceneCleanup(){
-    $("#gameArea").fadeIn(2000); // game area fades in
+    $("#gameArea").fadeIn(); // game area fades in
     $("#startGame").remove(); // removes the filter
     $("#gameArea").append('<audio autoplay="true" src="sources/sounds/Sled.mp3" type="audio/mpeg"></audio>');
 }
@@ -358,13 +361,13 @@ $(document).ready(function () {
         localStorage.setItem("stage", 0);
   //  }
     loadEvents();
-    addText(); // this is so we can just collapse the huge mass of selections, and stuff
+
 });
 function loadEvents()
 {
     $("#startGame").click(function () {
       $("#auntArctic").click(function () {
-        $("#gameArea").fadeIn(2000); // game area fades in
+        $("#gameArea").fadeIn(); // game area fades in
         $("#startGame").remove(); // removes the filter
         $("#gameArea").append('<audio autoplay="true" src="sources/sounds/Sled.mp3" type="audio/mpeg"></audio>');
           $("#currentPlayer").css("background-image", "url('images/Entities/aunt.png')");
@@ -382,11 +385,7 @@ function loadEvents()
 
           $("#currentPlayer").css("background-image", "url('images/Entities/frank.png')");
       });
-        $("#leftChoice, #rightChoice").hover(function () {
-            $(this).fadeTo(500, 1); // change opacity to 1 while hovering over
-        }, function () {
-            $(this).fadeTo(500, 0.8); // else fade back to normal
-        });
+
     });
     $("#leftChoice").click(function ()
     {
@@ -395,10 +394,13 @@ function loadEvents()
         var newRight = (getStage(c)).optionLeftNext;
         localStorage.setItem("stage", newRight);
         var stage = getStage(newRight);
-        changeText(stage.optionLeft,stage.optionRight,stage.sceneText);
-        var right = stage.optionRightNext;
-        var left = stage.optionLeftNext;
-        $("#stage").text("NextLeftScene: " + left + " || " + "Stage: " + newRight +  " || " + "NextRightScene: " + right);
+        if(stage != null){
+            changeText(stage.optionLeft,stage.optionRight,stage.sceneText);
+            var right = stage.optionRightNext;
+            var left = stage.optionLeftNext;
+            $("#stage").text("NextLeftScene: " + left + " || " + "Stage: " + newRight +  " || " + "NextRightScene: " + right);
+        }
+
     });
     $("#rightChoice").click(function () {
         var currentStage = localStorage.getItem("stage");
