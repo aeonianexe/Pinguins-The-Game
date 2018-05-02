@@ -2,7 +2,7 @@ var scenarioText = [];
 var scenarioTextLost = [];
 var userOptions = [];
 var randomEncounterText = [];
-var stage = 0;
+var fullGameArea = "";
 
 
 function getSceneText(LevelID, SceneID)
@@ -307,7 +307,22 @@ function getStage(stageID)
       }
 
     }
-
+    function setCharacterBackground(characterID){
+        switch(characterID){
+            case 1:
+            $("#currentPlayer").css("background-image", "url('images/Entities/aunt.png')");
+            break;
+            case 2:
+            $("#currentPlayer").css("background-image", "url('images/Entities/wendy.png')");
+            break;
+            case 3:
+            $("#currentPlayer").css("background-image", "url('images/Entities/edward.png')");
+            break;
+            case 4:
+            $("#currentPlayer").css("background-image", "url('images/Entities/frank.png')");
+            break;
+        }
+    }
 function characterSceneCleanup(){
     $("#gameArea").fadeIn(); // game area fades in
     $("#startGame").remove(); // removes the filter
@@ -329,37 +344,61 @@ function characterSceneCleanup(){
 
 
 // ========================================================================= Jquery starts here
+
+function setStage(){
+  fullGameArea = $("#gameArea").clone();
+  $("#gameArea").remove();
+  $("#stage").append(fullGameArea);
+}
 $(document).ready(function () {
-   // if (localStorage.getItem("stage") == null) {
+  $("#event").click(function () {
+    location.reload();
+
+  });
+  var stage = localStorage.getItem("stage")* 1;
+  if (stage < 1)
+  {
+    stage = 0;
         localStorage.setItem("stage", 0);
-  //  }
+        loadEvents();
+  }
+  else{
     loadEvents();
+    var stageObj = getStage(stage);
+    changeText(stageObj.optionLeft,stageObj.optionRight,stageObj.sceneText);
+    characterSceneCleanup();
+    var p = localStorage.getItem("pinguin")*1;
+    setCharacterBackground(p);
+  }
 
 });
+
 function loadEvents()
 {
     $("#startGame").click(function () {
       $("#auntArctic").click(function () {
-        $("#gameArea").fadeIn(); // game area fades in
-        $("#startGame").remove(); // removes the filter
+        localStorage.setItem("pinguin", 1);
+          characterSceneCleanup();
         $("#event").text("Welcome to Pinguins: A Choose Your Own Adventure Game.");
-        $("#gameArea").append('<audio autoplay="true" src="sources/sounds/Sled.mp3" type="audio/mpeg"></audio>');
-          $("#currentPlayer").css("background-image", "url('images/Entities/aunt.png')");
+        setCharacterBackground(1);
       });
       $("#wendyWaddle").click(function () {
+        localStorage.setItem("pinguin", 2);
           characterSceneCleanup();
           $("#event").text("Welcome to Pinguins: A Choose Your Own Adventure Game.");
-          $("#currentPlayer").css("background-image", "url('images/Entities/wendy.png')");
+          setCharacterBackground(2);
       });
       $("#edwardSnow").click(function () {
+        localStorage.setItem("pinguin", 3);
           characterSceneCleanup();
           $("#event").text("Welcome to Pinguins: A Choose Your Own Adventure Game.");
-          $("#currentPlayer").css("background-image", "url('images/Entities/edward.png')");
+          setCharacterBackground(3);
       });
       $("#frankFishy").click(function () {
+        localStorage.setItem("pinguin", 4);
           characterSceneCleanup();
           $("#event").text("Welcome to Pinguins: A Choose Your Own Adventure Game.");
-          $("#currentPlayer").css("background-image", "url('images/Entities/frank.png')");
+          setCharacterBackground(4);
       });
 
     });
@@ -404,6 +443,7 @@ function playerDeath()
 {
     $("#leftChoice, #currentPlayer, #rightChoice").remove();
     $("#gameArea").css("background-image", "url('images/BackDrops/lost.png')");
+            localStorage.setItem("stage", 0);
 }
 function sideBoxesFadeOut()
 {
