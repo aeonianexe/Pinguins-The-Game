@@ -194,22 +194,10 @@ function getStage(stageID)
         };
 
         case 2:
-            if(RandomNum() >= 50)
-            {
                 playerDeath();
                 return {
                     sceneText : scenarioTextLost[0]
                 };
-            }
-            return {
-              sceneText : randomEncounterText[0],
-              optionLeft : getOptionText(2, 13) ,
-              optionRight : getOptionText(2, 14),
-              optionLeftNext : 5,
-              optionRightNext : 3
-            };
-
-
 
         case 3: return {
             sceneText : getSceneText(2, 5) ,
@@ -281,20 +269,12 @@ function getStage(stageID)
             sceneText : scenarioTextLost[2]}
         }
         case 12:
-            if(RandomNum() >= 50)
-            {
             return {
               sceneText : randomEncounterText[2],
               optionLeft : getOptionText(2, 9) ,
               optionRight : getOptionText(2, 12),
               optionLeftNext : 14,
               optionRightNext : 13
-            }
-            return {
-              sceneText : randomEncounterText[1],
-              optionLeftNext : null,
-              optionRightNext : null
-            }
           }
         case 13:
               {
@@ -318,16 +298,10 @@ function getStage(stageID)
           sceneText : scenarioTextLost[4]}
         }
       case 16:
-        if(RandomNum() >= 50)
-        {
-        playerDeath();
-        return { isdead : true,
-            sceneText : scenarioTextLost[5]}
-        }
+
         gameWin();
         return {
           sceneText : getSceneText(3, 2)
-
         }
 
       }
@@ -368,20 +342,23 @@ function loadEvents()
       $("#auntArctic").click(function () {
         $("#gameArea").fadeIn(); // game area fades in
         $("#startGame").remove(); // removes the filter
+        $("#event").text("Welcome to Pinguins: A Choose Your Own Adventure Game.");
         $("#gameArea").append('<audio autoplay="true" src="sources/sounds/Sled.mp3" type="audio/mpeg"></audio>');
           $("#currentPlayer").css("background-image", "url('images/Entities/aunt.png')");
       });
       $("#wendyWaddle").click(function () {
           characterSceneCleanup();
+          $("#event").text("Welcome to Pinguins: A Choose Your Own Adventure Game.");
           $("#currentPlayer").css("background-image", "url('images/Entities/wendy.png')");
       });
       $("#edwardSnow").click(function () {
           characterSceneCleanup();
+          $("#event").text("Welcome to Pinguins: A Choose Your Own Adventure Game.");
           $("#currentPlayer").css("background-image", "url('images/Entities/edward.png')");
       });
       $("#frankFishy").click(function () {
           characterSceneCleanup();
-
+          $("#event").text("Welcome to Pinguins: A Choose Your Own Adventure Game.");
           $("#currentPlayer").css("background-image", "url('images/Entities/frank.png')");
       });
 
@@ -416,11 +393,7 @@ function loadEvents()
 } // end of Events
 // ================================ END OF THAT MESS ================================
 // random number generator.
-function RandomNum()
-{
-    let chance = Math.floor((Math.random() * 100) * 1); // calculates the chance of an event happening
-    return chance;
-}
+
 function levelTwoBackgroundSwap(){
     $("#gameArea").css("background-image", "url('images/BackDrops/backdrop3.png')");
 }
@@ -437,7 +410,12 @@ function sideBoxesFadeOut()
     $("#leftChoice, #rightChoice").remove();
 }
 function gameWin(){
-  $("#leftChoice, #currentPlayer, #rightChoice, #footer,").remove();
+  $("#stage").remove();
+  $("#currentPlayer").remove();
+  $("#rightChoice").remove();
+  $("#leftChoice").remove();
+  $("#event").remove();
+  $("#footer").remove();
   $("#gameArea").css("background-image", "url('images/BackDrops/won.png')");
 }
 // changes text to this specific value in array
