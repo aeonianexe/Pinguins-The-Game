@@ -30,14 +30,14 @@
     height: 50%;
 }
 .playerCards{
-    position: fixed;
-    width:100%;
+    height:auto;
+    width:auto;
 
 }
 .player{
   float: left;
   width: 25%;
-  display-block:inline;
+  display:inline-block;
 
 }
 
