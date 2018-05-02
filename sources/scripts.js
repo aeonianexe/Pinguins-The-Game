@@ -4,68 +4,303 @@ var userOptions = [];
 var randomEncounterText = [];
 var stage = 0;
 
-function addText() {
 
-    //level one scenarios.
-    // scenario text
-    scenarioText[0] = "As the sun rises on the island, the pinguins discover that they are far away from home; they notice that all of their pinguin friends are gone- They are alone.";
-    // new life
-    scenarioText[1] = "The pinguins have decided that they want to make a new life for themselves on the iceberg. It wouldn’t be worth it to try to go home. ";
-    // find igloo
-    scenarioText[2] = "The pinguins manage to find an igloo stocked with food. But no other pinguins.";
-    // go home + polar bear
-    scenarioText[3] = "The pinguins have decided to make their way home. While trying to get an idea of where they are, they encounter a polar bear who is weak and hungry.";
-    //hunting and shark
-    scenarioText[4] = "The pinguins have decided to go hunting in the water. They encounter a shark and get injured. What now?";
-    //polar bear Encounters
-    scenarioText[6] = "The pinguins encounter a polar bear while searching for other pinguins. They decide to ask the polar bear for a ride!";
-    //find food
-    scenarioText[7] = "The pinguins had a successful hunt! They have food!";
-    //hungry and keep food
-    scenarioText[8] = "After all of that hunting, the pinguins have decided to keep the food so they would be strong enough to find their way home. They never see the polar bear again.";
-    //polar bear offers ride
-    scenarioText[9] = "The polar bear is so happy that he has food, he offers the pinguins to ride on his back to help them get home. He drops them off on a small island, and now they have to make the rest of the journey by themselves.";
-    //sleep
-    scenarioText[10] = "The pinguins decide that it's getting late, and they're tired after such a long day. They think it's best if they rest on the island and made their way home the next day. They're fully rested and ready to go the next morning.";
-    //random iceberg
-    scenarioText[11] = "The pinguins were far too tired to make it all the way home. They end up on another random iceberg.";
+function getSceneText(LevelID, SceneID)
+{
 
-    //level two scenarios
-    //rest
-    scenarioText[12] = "The pinguins thank the polar bear and decide to rest before continuing their journey.";
-    //eat fish
-    scenarioText[13] = "The pinguins decide to eat some fish to gain strength. Then it's time to continue.";
-    //sleep
-    scenarioText[14] = "The pinguins decide to sleep before continuing. Then they're off!";
-    // start their journey
-    scenarioText[15] = "The journey has begun for the pinguins. They now have to choose how they will make their way home";
-    // swim
-    scenarioText[16] = "The pinguins decide to swim! But where do they swim to?";
-    // swam to random iceberg + seals.
-    scenarioText[18] = "The pinguins swam to a random iceberg. As soon as they get settled, they encounter hungry seals.";
-    //gave seals all food + survive
-    scenarioText[19] = "While the pinguins may have lost their food supply, they saved their lives, and can continue their journey home.";
-    //didnt want to swim, sail boat.
+ this.getLevel1 = function()
+    {
+        switch(SceneID)
+        {
+            case 0:
+                return "As the sun rises on the island, the penguins discover that they're far away from home.They notice" +
+                "that all of their penguin friends are gone. They are alone.lick a selection above to decide what the penguins should do.";
 
-    // WHAT HAPPEND TO SCENARIO 20
-    scenarioText[21] = "We have lazy pinguins here. They didn't want to swim, and instead decide to make a sail boat. But how?";
-    //make boat with whatever
-    scenarioText[22] = "The pinguins gather materials from around the small iceberg, and make a boat successfully.";
-    //boat breaks bc pollution
-    scenarioText[23] = "The water surrounding them was full of polution, and the pollution slowly but surely destroyed their boat. The pinguins begin to panic when they are stranded in the water and they see sharks not too far in the distance.";
-    //boat survives pollution.
-    scenarioText[24] = "The boat makes it through the polluted waters but the pinguins see sharks in the distance and have no choice but to swim to escape them.";
-    //get out of boat.
-    scenarioText[25] = "The pinguins decide to just swim. These pinguins like to take risks They start swimming to avoid the sharks. And although they get a little roughed up, the pinguins survive!";
+            // scenario text
+            case 1:
+            return "As the sun rises on the island, the pinguins discover that they are far away from home; they notice that all of their pinguin friends are gone- They are alone.";
 
-    //level 3 scenario
-    //rested
-    scenarioText[27] = "The pinguins decide they're going to rest a big on the next iceberg. They can see their home not too far in the distance. After waddling around, they discover that the water between them and their home is full of pollution. Plastic Rings from soda cans, plastic bags, and so much trash. It would be almost impossible to swim through, but they have to do it. They have to find a way home.";
-    // made it home
-    scenarioText[29] = "The pinguins made it home covered in trash!";
-    //abandon Bear
-    scenarioText[31] = "The pinguins were too worried about getting home, they didn't have time to help the polar bear. Now what do they do?"
-    scenarioText[32] = "The pinguins didn't care about the ferocious polar bear, so they waddled on."
+            // polar bear
+            case 2:
+            return "Encounter a polar bear when trying to figure out where they are.";
+
+            // go hunting
+            case 3:
+            return "The pinguins decide to go hunting and find food for the polar bear.";
+
+            // keep food
+            case 4:
+            return "The pinguins keep the food.";
+
+            //never see polar bear again
+            case 6:
+            return "The pinguins never see the polar bear again and make it to the next island on their own. What should they do next?"
+
+            //find food success
+            case 7:
+            return  "The pinguins successfully found food, but that was a lot of work.";
+
+            //random polar Bear
+            case 8:
+            return "The pinguins randomly encounter a polar bear and ask for a ride. They get dropped off by the polar bear on a new iceberg.";
+        }
+        return "GetScene Level 1 Error";
+    }
+    this.getLevel2 = function()
+    {
+        switch(SceneID)
+        {
+            //polar bear drop off
+            case 1:
+            return "The pinguins were dropped off by the polar bear on a random iceberg.";
+
+            //tired and new island
+            case 2:
+            return "The pinguins were too tired to travel, and got washed up on another random iceberg.";
+
+            //new island
+            case 3:
+            return "The pinguins are now on a new island. What do they do now?";
+
+            // rest v travel
+            case 4:
+            return "While the pinguins rested before they travelled. They can't decide if they should rest more on the new iceberg, or if they should just start travelling.";
+
+            // rest
+            case 5:
+            return "The pinguns decide they're going to rest on the iceberg.";
+
+            // travel
+            case 6:
+                return "It's time to travel! But how?";
+
+            //swim to where
+            case 7:
+                return "When in doubt, swim it out! But to where?";
+            //eals
+            case 8:
+                return "The pinguins swam until another iceberg, but encountered hungry seals."
+
+            //whatever they can find
+            case 9:
+                return "The pinguins decide to make the boat with whatever they can find.";
+        }
+    }
+    this.getLevel3 = function()
+    {
+        switch(SceneID)
+        {
+            //new island
+            case 1:
+            return  "They made it to the final island and can see their home. What should they do?";
+        }
+    }
+
+	switch(LevelID)
+	{
+        case 1:
+            return getLevel1;
+        case 2:
+            return getLevel2;
+        case 3:
+            return getLevel3;
+    }
+
+}
+
+function getOptionText(LevelID, OptionID)
+{
+    this.getLevel1 = function()
+    {
+        switch(OptionID)
+        {
+            case 0: return "Make their way home";
+            case 1: return "Make a new life";
+            case 2: return "Go hunting and find food for the polar bear";
+            case 3: return "Abandon the polar bear";
+            case 4: return "Give the food to the Polar Bear.";
+            case 5: return "Keep the food for yourselves.";
+            case 6: return "Rest on the iceberg.";
+            case 7: return "Start the journey home.";
+            case 8: return "Why bother trying to go back home? That's a hassle and penguins are lazy. The penguins should try to make a new life on the island!";
+            case 9: return "Leave their friends, their family, and their waddle behind? Absolutely not. We only have faithful penguins here. The penguins should try to make their way home!";
+        }
+    }
+    this.getLevel2 = function()
+    {
+        switch(OptionID)
+        {
+            case 1: return "Sleep until the next day";
+            case 2: return "Eat fish and then travel.";
+            case 3: return "Try to make a sail boat.";
+            case 4: return "Swim.";
+            case 5: return "Give up on making a sail boat.";
+            case 6: return "Build the boat with whatever can be found.";
+            case 7: return "Swim until the next iceberg comes along.";
+            case 8: return "Swim until the pinguins can't swim anymore.";
+            case 9: return  "Stay in the boat.";
+            case 10: return "Run from seals.";
+            case 11: return "Give seals all of the food in order to escape.";
+            case 12: return "Start swimming to avoid the sharks.";
+            case 13: return "Start travelling right away";
+            case 14: return "Rest until the next day.";
+            case 15: return "Travel to get away from the bear.";
+            case 16: return "Rest on the island (but far away from the bear)";
+            case 17: return "They are rested enough. Make the pinguins travel.";
+            case 18: return "Rest more.";
+            case 19: return "Travel anyway.";
+            case 20: return "Poor pinguins. They need more rest!";
+        }
+    }
+    this.getLevel3 = function()
+    {
+        switch(OptionID)
+        {
+            case 1: return "Call for help";
+            case 2: return "Take the risk and swim";
+        }
+    }
+    switch(LevelID)
+	{
+        case 1:
+            return this.getLevel1;
+        case 2:
+            return this.getLevel2;
+        case 3:
+            return this.getLevel3;
+    }
+}
+function getStage(stageID)
+{
+    switch(stageID)
+	{
+
+        case 0: return {
+            sceneText : getSceneText(1, 1) ,
+            optionLeft : getOptionText(1, 1) ,
+            optionRight : getOptionText(1, 0),
+            optionLeftNext : 2,
+            optionRightNext : 1
+        };
+
+        case 1: return {
+            sceneText : getSceneText(1, 2) ,
+            optionLeft : getOptionText(1, 3) ,
+            optionRight : getOptionText(1, 2),
+            optionLeftNext : 3,
+            optionRightNext : 4
+        };
+
+        case 2:
+            if(RandomNum() >= 50)
+            {
+            playerDeath();
+            return { isdead : true,
+                sceneText : scenarioTextLost[0]}
+            }
+            return {
+              sceneText : getSceneText(1, 8),
+              optionLeft : getOptionText(2, 13) ,
+              optionRight : getOptionText(2, 14),
+              optionLeftNext : 3,
+              optionLeftNext : 5
+            };
+
+        case 3: return {
+            sceneText : getSceneText(2, 5) ,
+            optionLeft : getOptionText(2, 2) ,
+            optionRight : getOptionText(2, 1),
+            optionLeftNext : 5,
+            optionRightNext : 5
+        };
+        case 4: return {
+            sceneText : getSceneText(1, 6) ,
+            optionLeft : getOptionText(1, 7) ,
+            optionRight : getOptionText(1, 6),
+            optionLeftNext : 3,
+            optionRightNext : 6
+        };
+        case 5: return {
+            sceneText : getSceneText(2, 6) ,
+            optionLeft : getOptionText(2, 3) ,
+            optionRight : getOptionText(2, 4),
+            optionLeftNext : 7,
+            optionRightNext : 8
+        };
+        case 6: return {
+            sceneText : getSceneText(2, 2) ,
+            optionLeft : getOptionText(2, 20) ,
+            optionRight : getOptionText(2, 19),
+            optionLeftNext : 5,
+            optionRightNext : 3
+        };
+        case 7: return {
+          sceneText : getSceneText(2, 7) ,
+          optionLeft : getOptionText(2, 7) ,
+          optionRight : getOptionText(2, 8),
+          optionLeftNext : 9,
+          optionRightNext : 10
+        };
+        case 8: return {
+            sceneText : getSceneText(2, 10) ,
+            optionLeft : getOptionText(2, 5) ,
+            optionRight : getOptionText(2, 6),
+            optionLeftNext : null,
+            optionRightNext : 7
+        };
+
+        case 9:
+        {
+        playerDeath();
+        return { isdead : true,
+            sceneText : scenarioTextLost[1]}
+        }
+
+        case 10: return{
+          sceneText : getSceneText(2, 8) ,
+          optionLeft : getOptionText(2, 10) ,
+          optionRight : getOptionText(2, 11),
+          optionLeftNext : null,
+          optionRightNext : 13
+        }
+        case 11:
+        {
+        playerDeath();
+        return { isdead : true,
+            sceneText : scenarioTextLost[2]}
+        }
+        case 12:
+            if(RandomNum() >= 50)
+            {
+            return {
+              sceneText : randomEncounterText[2],
+              optionLeft : getOptionText(2, 9) ,
+              optionRight : getOptionText(2, 12),
+              optionLeftNext : null,
+              optionRightNext : 13
+            }
+            return {
+              sceneText : randomEncounterText[1],
+              optionLeftNext : null,
+              optionRightNext : null
+            }
+          }
+            case 13:
+              {
+              playerDeath();
+              return { isdead : true,
+                  sceneText : scenarioTextLost[3]}
+              }
+
+
+
+    }
+}
+function characterSceneCleanup(){
+    $("#gameArea").fadeIn(2000); // game area fades in
+    $("#startGame").remove(); // removes the filter
+    $("#gameArea").append('<audio autoplay="true" src="sources/sounds/Sled.mp3" type="audio/mpeg"></audio>');
+}
 
     // all text that includes pinguins brutal demise
     scenarioTextLost[0] = "The pinguins eventually get tired and can no longer find any way to survive. You lose.";
@@ -77,74 +312,38 @@ function addText() {
 
     // all random encounter dialog here
     randomEncounterText[0] = "The pinguins encounter a polar bear and ask for ride.";
-    randomEncounterText[1] = "The boat breaks!";
-    randomEncounterText[2] = "The boat survives!";
+    randomEncounterText[1] = "The boat breaks and there are sharks in the distance. The pinguins have to swim away!";
+    randomEncounterText[2] = "The boat survives! However there are sharks in te distance and the pinguins have to make a decision.";
 
-    // Choices user can make
-    // level one
-    userOptions[0] = "Make a new life";
-    userOptions[1] = "Try to find other Pinguins"; // leads to a random encounter
-    userOptions[2] = "Keep Looking for Pinguins"; // leads to a random encounter
-    userOptions[3] = "Try to go home instead";
-    userOptions[4] = "Go hunting and find food (chance)";
-    userOptions[5] = "Abandon the polar bear"; // :c
-    userOptions[6] = "Continue hunting and find no food.";
-    userOptions[7] = "Go back and look for other pinguins.";
-    userOptions[8] = "Give up looking for other pinguins. And try to go home.";
-    userOptions[9] = "Give up looking for food, and try to go home.";
-    userOptions[10] = "Go hunting to find food for the Polar Bear.";
-    userOptions[11] = "Give the food to the Polar Bear.";
-    userOptions[12] = "Keep the food for yourselves.";
-    userOptions[13] = "Rest on the iceberg.";
-    userOptions[14] = "Start the journey home.";
 
-    // level two
-    userOptions[14] = "Rest until the next day";
-    userOptions[15] = "Start travelling home";
-    userOptions[16] = "Eat fish and then start traveling.";
-    userOptions[17] = "Sleep until the next day, and then start going home.";
-    userOptions[18] = "Just keep swimming";
-    userOptions[19] = "Swim until the next iceberg comes along.";
-    userOptions[20] = "Try to make a sailboat.";
-    userOptions[21] = "Build boat with whatever can be found";
-    userOptions[22] = "Give seals the food";
-    userOptions[23] = "Stay in the boat";
-    userOptions[24] = "Start swimming to avoid the sharks";
-    userOptions[25] = "Waddle from the seals.";
-
-    // level three. I guess
-    userOptions[26] = "Call for help";
-    userOptions[27] = "Take the risk and swim";
-}
 // ========================================================================= Jquery starts here
 $(document).ready(function () {
+   // if (localStorage.getItem("stage") == null) {
+        localStorage.setItem("stage", 0);
+  //  }
     loadEvents();
     addText(); // this is so we can just collapse the huge mass of selections, and stuff
 });
-function loadEvents() {
+function loadEvents()
+{
     $("#startGame").click(function () {
       $("#auntArctic").click(function () {
-          $("#gameArea").fadeIn(2000); // game area fades in
-          $("#startGame").remove(); // removes the filter
-          $("#gameArea").append('<audio autoplay="true" src="sources/sounds/Sled.mp3" type="audio/mpeg"></audio>');
+        $("#gameArea").fadeIn(2000); // game area fades in
+        $("#startGame").remove(); // removes the filter
+        $("#gameArea").append('<audio autoplay="true" src="sources/sounds/Sled.mp3" type="audio/mpeg"></audio>');
           $("#currentPlayer").css("background-image", "url('images/Entities/aunt.png')");
       });
       $("#wendyWaddle").click(function () {
-          $("#gameArea").fadeIn(2000); // game area fades in
-          $("#startGame").remove(); // removes the filter
-          $("#gameArea").append('<audio autoplay="true" src="sources/sounds/Sled.mp3" type="audio/mpeg"></audio>');
+          characterSceneCleanup();
           $("#currentPlayer").css("background-image", "url('images/Entities/wendy.png')");
       });
       $("#edwardSnow").click(function () {
-          $("#gameArea").fadeIn(2000); // game area fades in
-          $("#startGame").remove(); // removes the filter
-          $("#gameArea").append('<audio autoplay="true" src="sources/sounds/Sled.mp3" type="audio/mpeg"></audio>');
+          characterSceneCleanup();
           $("#currentPlayer").css("background-image", "url('images/Entities/edward.png')");
       });
       $("#frankFishy").click(function () {
-          $("#gameArea").fadeIn(2000); // game area fades in
-          $("#startGame").remove(); // removes the filter
-          $("#gameArea").append('<audio autoplay="true" src="sources/sounds/Sled.mp3" type="audio/mpeg"></audio>');
+          characterSceneCleanup();
+
           $("#currentPlayer").css("background-image", "url('images/Entities/frank.png')");
       });
         $("#leftChoice, #rightChoice").hover(function () {
@@ -153,92 +352,51 @@ function loadEvents() {
             $(this).fadeTo(500, 0.8); // else fade back to normal
         });
     });
-    $("#leftChoice").click(function () {
-        switch (stage) {
-            case 0: // intro checkpoint
-                stage = 3; // put at front
-                changeText(left = 1, right = 4, story = 1);
-                stage = 1;
-                break;
-            case 1: // second checkpoint(left)
-                stage = 3;
-                changeText(left = 2, right = 3, story = 2);
-                break;
-            case 2: // third checkpoint(left)
-                changeText(left = 6, right = 3, story = 4);
-                break;
-            case 3: // fourth selection
-                // if less than 50 player loses
-                if (RandomNum() > 50) {
-                    playerDeath();
-                    $("#story").text(scenarioTextLost[0]);
-                } else {
-                    // travel to iceberg
-                    $("#leftChoice, #rightChoice").fadeOut();
-                    $("#story").text(randomEncounterText[0]);
-                    // user clicks on polar bear
-                    $("#currentPlayer").click(function () {
-                        $("#gameArea").css("background-image", "url('images/BackDrops/backdrop3.png')");
-                        $("#leftChoice, #rightChoice").fadeIn();
-                        changeText(left = 9, right = 13, story = 14);
-                    });
-                }
-                break;
-            case 4: // fith selection
-                changeText(left = 16, right = 17, story = 12);
-                stage = 5;
-                break;
-            case 5: // sixth selection
-                changeText(left = 15, right = 20, story = 14);
-                stage = 6;
-                break;
-            case 6: // seventh selection
-                changeText(left = 18, right = 19, story = 16);
-                stage = 7;
-                break;
-            case 7: // player is killed
-                playerDeath();
-                $("#gameArea").css("background-image", "url('images/Entities/shark.png')");
-                $("#story").text(scenarioTextLost[1]);
-                break;
-        }
+    $("#leftChoice").click(function ()
+    {
+        var currentStage = localStorage.getItem("stage");
+        var c = currentStage * 1;
+        var newRight = (getStage(c)).optionLeftNext;
+        localStorage.setItem("stage", newRight);
+        var stage = getStage(newRight);
+        changeText(stage.optionLeft,stage.optionRight,stage.sceneText);
+        var right = stage.optionRightNext;
+        var left = stage.optionLeftNext;
+        $("#stage").text("NextLeftScene: " + left + " || " + "Stage: " + newRight +  " || " + "NextRightScene: " + right);
     });
     $("#rightChoice").click(function () {
-        switch (stage) {
-            case 0: // first checkpoint(right)
-                $("#currentPlayer").css("background-image", "url('images/Entities/PolarBear.png')");
-                changeText(left = 10, right = 5, story = 3);
-
-                $("#leftText").click(function () {
-                    if (RandomNum() <= 50) {
-                        console.log("Food++");
-                    } else {
-                        console.log("food--");
-                    }
-                });
-                stage = 3
-                break;
-            case 3:
-                changeText(left = 13, right = 14, story = 31);
-                break;
-        }
+        var currentStage = localStorage.getItem("stage");
+        var c = currentStage * 1;
+        var newRight = (getStage(c)).optionRightNext;
+        localStorage.setItem("stage", newRight);
+        var stage = getStage(newRight);
+        changeText(stage.optionLeft,stage.optionRight,stage.sceneText);
+        var right = stage.optionRightNext;
+        var left = stage.optionLeftNext;
+        $("#stage").text("NextLeftScene: " + left + " || " + "Stage: " + newRight +  " || " + "NextRightScene: " + right);
     });
 
 } // end of Events
 // ================================ END OF THAT MESS ================================
 // random number generator.
-function RandomNum() {
+function RandomNum()
+{
     let chance = Math.floor((Math.random() * 100) * 1); // calculates the chance of an event happening
     return chance;
 }
-function playerDeath() {
+function playerDeath()
+{
     $("#leftChoice, #currentPlayer, #rightChoice").fadeOut(2000);
 }
+function sideBoxesFadeOut()
+{
+    $("#leftChoice, #rightChoice").fadeOut(2000);
+}
 // changes text to this specific value in array
-function changeText(left, right, story) {
-
+function changeText(left, right, story)
+{
     // does not include scenarios where player loses
-    $("#leftText").text(userOptions[left]);
-    $("#rightText").text(userOptions[right]);
-    $("#story").text(scenarioText[story]);
+    $("#leftText").text(left);
+    $("#rightText").text(right);
+    $("#story").text(story);
 }
