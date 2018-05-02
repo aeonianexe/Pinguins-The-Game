@@ -436,7 +436,7 @@ $("#stage").remove();
 $("#currentPlayer").remove();
 $("#rightChoice").remove();
 $("#leftChoice").remove();
-$("#event").remove();
+$("#event").text("You saved the pinguins! Click here to play again!");
 $("#footer").remove();
 $("#gameArea").css("background-image", "url('images/BackDrops/won.png')");
 }
