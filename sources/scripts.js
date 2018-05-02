@@ -46,7 +46,7 @@ function getSceneText(LevelID, SceneID)
         }
         return "GetScene Level 1 Error";
     }
-    this.getLevel2 = function()
+this.getLevel2 = function()
     {
         switch(SceneID)
         {
@@ -86,7 +86,7 @@ function getSceneText(LevelID, SceneID)
                 return "The pinguins decide to make the boat with whatever they can find.";
         }
     }
-    this.getLevel3 = function()
+this.getLevel3 = function()
     {
         switch(SceneID)
         {
