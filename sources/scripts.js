@@ -418,9 +418,9 @@ $("#gameArea").css("background-image", "url('images/BackDrops/backdrop1.jpg')");
 //All player Death end functions
 function playerDeath()
 {
+$("#gameArea").css("background-image", "url('images/BackDrops/wasted.png')");
 $("#event").text("Oh no! Click here to play again!");
 $("#leftChoice, #currentPlayer, #rightChoice").remove();
-$("#gameArea").css("background-image", "url('images/BackDrops/wasted.png')");
         localStorage.setItem("stage", 0);
 }
 
