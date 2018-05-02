@@ -93,6 +93,8 @@ function getSceneText(LevelID, SceneID)
             //new island
             case 1:
             return  "They made it to the final island and can see their home. What should they do?";
+            case 2:
+            return "The pinguins made it home covered in trash. YOU WIN!";
         }
     }
 
@@ -245,7 +247,7 @@ function getStage(stageID)
             sceneText : getSceneText(2, 10) ,
             optionLeft : getOptionText(2, 5) ,
             optionRight : getOptionText(2, 6),
-            optionLeftNext : null,
+            optionLeftNext : 12,
             optionRightNext : 7
         };
 
@@ -260,7 +262,7 @@ function getStage(stageID)
           sceneText : getSceneText(2, 8) ,
           optionLeft : getOptionText(2, 10) ,
           optionRight : getOptionText(2, 11),
-          optionLeftNext : null,
+          optionLeftNext : 14,
           optionRightNext : 13
         }
         case 11:
@@ -276,7 +278,7 @@ function getStage(stageID)
               sceneText : randomEncounterText[2],
               optionLeft : getOptionText(2, 9) ,
               optionRight : getOptionText(2, 12),
-              optionLeftNext : null,
+              optionLeftNext : 14,
               optionRightNext : 13
             }
             return {
@@ -285,14 +287,36 @@ function getStage(stageID)
               optionRightNext : null
             }
           }
-            case 13:
+        case 13:
               {
               playerDeath();
               return { isdead : true,
                   sceneText : scenarioTextLost[3]}
               }
-
-
+        case 14:
+        return{
+          sceneText : getSceneText(3, 1),
+          optionLeft : getOptionText(3, 1) ,
+          optionRight : getOptionText(3, 2),
+          optionLeftNext : 16,
+          optionRightNext : 15
+        }
+        case 15:
+        {
+          playerDeath();
+          return { isdead : true,
+          sceneText : scenarioTextLost[4]}
+        }
+        case 16:
+        if(RandomNum() >= 50)
+        {
+        playerDeath();
+        return { isdead : true,
+            sceneText : scenarioTextLost[5]}
+        }
+        return {
+          sceneText : getSceneText(3, 2)
+        };
 
     }
 }
