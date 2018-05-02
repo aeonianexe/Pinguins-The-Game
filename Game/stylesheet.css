@@ -2,28 +2,19 @@
     margin: auto;
     box-sizing: border-box;
 }
-
 .leftSide {
     position: fixed;
-    left: 1em;
-    height: 50%;
+    left: 0px;
+    top: 25%;
 }
-
 .rightSide {
     position: fixed;
-    right: 1em;
     height: 50%;
+    right: 0px;
 }
-
 .middle {
     top: 50%;
 }
-
-#startGame {
-    cursor: pointer;
-    font-size:50px;
-}
-
 .centered {
     position: fixed;
     top: 50%;
@@ -34,57 +25,62 @@
     -o-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
 }
-
 .dialogBox {
     width: 25%;
     height: 50%;
-    font-size: 1em;
+}
+.playerCards{
+  top: 50%;
+  left: 50%;
+  display:inline-block;
+}
+.player{
+  float: left;
 }
 
+#story{
+  font-size: 1.5em;
+}
+p {
+    padding: 2px;
+    font-size: 1.5em;
+}
 body {
     background: #333333;
+    font-family: Arial, Helvetica, sans-serif;
     text-align: center;
     color: white;
 }
-
 /*
 Option on the left...
 */
-
 #leftChoice {
-    position: fixed;
+    position: absolute;
     opacity: 0.85;
     border-radius: 25px;
     background-color: #474747;
     color: white;
-    overflow-y: auto;
-    cursor: pointer;
+    overflow-y: scroll;
+    font-size: 1.5em;
 }
-
 /*
 Option on the right... NOT the CORRECT answer
 */
-
 #rightChoice {
     opacity: 0.85;
     background-color: #474747;
     border-radius: 25px;
     color: white;
-    overflow-y: auto;
-    cursor: pointer;
+    overflow-y: scroll;
+    font-size: 1.5em;
 }
-
 #currentPlayer {
-    background-image: url('images/Entities/player.png');
     background-repeat: no-repeat;
     background-size: 100% 100%;
     width: 20%;
     height: 50%;
-    cursor: pointer;
 }
-
 /* Game area wont show until START button pressed */
-
 #gameArea {
     background-image: url('images/BackDrops/backdrop2.png');
     background-attachment: fixed;
@@ -94,25 +90,18 @@ Option on the right... NOT the CORRECT answer
     height: 97%;
     overflow: hidden;
     display: none;
-    background-color: black;
+    background-color: gray;
     padding-top: 3%;
 }
-
-#story {
-    font-size:1em;
-    padding: 2px;
-}
-
-
-
 #footer {
     background-color: #474747;
-    width: 70%;
-    height: 20%;
+    width: 100%;
+    height: 25%;
     position: fixed;
     left: 0;
     right: 0;
     bottom: 0;
-    opacity: 0.8;
+    opacity: 0.9;
     color: white;
+    overflow-y: scroll;
 }
