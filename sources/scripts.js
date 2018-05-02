@@ -200,16 +200,15 @@ function getStage(stageID)
                 return {
                     sceneText : scenarioTextLost[0]
                 };
-            } else {
-            levelTwoBackgroundSwap();
+            }
             return {
-              sceneText : getSceneText(1, 8),
+              sceneText : randomEncounterText[0],
               optionLeft : getOptionText(2, 13) ,
               optionRight : getOptionText(2, 14),
               optionLeftNext : 5,
               optionRightNext : 3
             };
-        }
+
 
 
         case 3: return {
