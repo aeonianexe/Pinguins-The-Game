@@ -420,7 +420,7 @@ function playerDeath()
 {
 $("#event").text("Oh no! Click here to play again!");
 $("#leftChoice, #currentPlayer, #rightChoice").remove();
-$("#gameArea").css("background-image", "url('images/BackDrops/lost.png')");
+$("#gameArea").css("background-image", "url('images/BackDrops/wasted.png')");
         localStorage.setItem("stage", 0);
 }
 
@@ -470,9 +470,8 @@ $(document).ready(function () {
     loadEvents(); //load Event Handler
     var stageObj = getStage(stage); //Get Actual Stage Object
     changeText(stageObj.optionLeft,stageObj.optionRight,stageObj.sceneText); // Change Text to Saved Level
-    characterSceneCleanup(); 
+    characterSceneCleanup();
     var p = localStorage.getItem("pinguin")*1; //load penguin from storage
     setCharacterBackground(p); // set penguin
     }
 });
-
