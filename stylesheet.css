@@ -30,12 +30,15 @@
     height: 50%;
 }
 .playerCards{
-  top: 50%;
-  left: 50%;
-  display:inline-block;
+    position: fixed ;
+
+
 }
 .player{
   float: left;
+  width: 25%
+
+
 }
 
 #story{
