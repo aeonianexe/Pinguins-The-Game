@@ -27,11 +27,11 @@ this.getLevel1 = function()
     {
         case 0:
             return "As the sun rises on the island, the penguins discover that they're far away from home.They notice" +
-            "that all of their penguin friends are gone. They are alone.lick a selection above to decide what the penguins should do.";
+            "that all of their penguin friends are gone. They are alone. Click a selection above to decide what the penguins should do.";
 
         // scenario text
         case 1:
-        return "As the sun rises on the island, the pinguins discover that they are far away from home; they notice that all of their pinguin friends are gone- They are alone.";
+        return "As the sun rises on the island, the pinguins discover that they are far away from home; they notice that all of their pinguin friends are gone- They are alone. Click a selection above to decide what the penguins should do.";
 
         // polar bear
         case 2:
@@ -106,6 +106,7 @@ this.getLevel3 = function()
         //new island
         case 1:
         return  "They made it to the final island and can see their home. What should they do?";
+        //win
         case 2:
         return "The pinguins made it home covered in trash. YOU WIN!";
     }
@@ -137,11 +138,11 @@ this.getLevel1 = function()
         case 2: return "Go hunting and find food for the polar bear";
         case 3: return "Abandon the polar bear";
         case 4: return "Give the food to the Polar Bear.";
-        case 5: return "Keep the food for yourselves.";
+        case 5: return "Keep the food for themselves.";
         case 6: return "Rest on the iceberg.";
         case 7: return "Start the journey home.";
-        case 8: return "Why bother trying to go back home? That's a hassle and penguins are lazy. The penguins should try to make a new life on the island!";
-        case 9: return "Leave their friends, their family, and their waddle behind? Absolutely not. We only have faithful penguins here. The penguins should try to make their way home!";
+        case 8: return "Make a new life on the island!";
+        case 9: return "Make their way home!";
     }
 }
 this.getLevel2 = function()
@@ -417,8 +418,8 @@ $("#gameArea").css("background-image", "url('images/BackDrops/backdrop1.jpg')");
 //All player Death end functions
 function playerDeath()
 {
-$("#leftChoice, #currentPlayer, #rightChoice").remove();
 $("#event").text("Oh no! Click here to play again!");
+$("#leftChoice, #currentPlayer, #rightChoice").remove();
 $("#gameArea").css("background-image", "url('images/BackDrops/lost.png')");
         localStorage.setItem("stage", 0);
 }

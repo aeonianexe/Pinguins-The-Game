@@ -42,11 +42,7 @@
 }
 
 #story{
-  font-size: 1.5em;
-}
-p {
-    padding: 2px;
-    font-size: 1.5em;
+  font-size: 2em;
 }
 body {
     background: #333333;
@@ -64,7 +60,7 @@ Option on the left...
     background-color: #474747;
     color: white;
     overflow-y: scroll;
-    font-size: 1.5em;
+    font-size: 2em;
 }
 /*
 Option on the right... NOT the CORRECT answer
@@ -75,7 +71,7 @@ Option on the right... NOT the CORRECT answer
     border-radius: 25px;
     color: white;
     overflow-y: scroll;
-    font-size: 1.5em;
+    font-size: 2em;
 }
 #currentPlayer {
     background-repeat: no-repeat;
