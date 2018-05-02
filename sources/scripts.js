@@ -428,15 +428,15 @@ function levelThreeBackgroundSwap(){
 }
 function playerDeath()
 {
-    $("#leftChoice, #currentPlayer, #rightChoice").fadeOut(5);
+    $("#leftChoice, #currentPlayer, #rightChoice").remove();
     $("#gameArea").css("background-image", "url('images/BackDrops/lost.png')");
 }
 function sideBoxesFadeOut()
 {
-    $("#leftChoice, #rightChoice").fadeOut(5);
+    $("#leftChoice, #rightChoice").remove();
 }
 function gameWin(){
-  $("#leftChoice, #currentPlayer, #rightChoice, #footer,").fadeOut(5);
+  $("#leftChoice, #currentPlayer, #rightChoice, #footer,").remove();
   $("#gameArea").css("background-image", "url('images/BackDrops/won.png')");
 }
 // changes text to this specific value in array
