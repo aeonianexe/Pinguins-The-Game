@@ -200,6 +200,7 @@ function getStage(stageID)
             return { isdead : true,
                 sceneText : scenarioTextLost[0]}
             }
+            levelTwoBackgroundSwap()
             return {
               sceneText : getSceneText(1, 8),
               optionLeft : getOptionText(2, 13) ,
@@ -222,14 +223,20 @@ function getStage(stageID)
             optionLeftNext : 3,
             optionRightNext : 6
         };
-        case 5: return {
+        case 5:
+          levelTwoBackgroundSwap()
+        return {
+
             sceneText : getSceneText(2, 6) ,
             optionLeft : getOptionText(2, 3) ,
             optionRight : getOptionText(2, 4),
             optionLeftNext : 7,
             optionRightNext : 8
         };
-        case 6: return {
+        case 6:
+          levelTwoBackgroundSwap()
+        return {
+
             sceneText : getSceneText(2, 2) ,
             optionLeft : getOptionText(2, 20) ,
             optionRight : getOptionText(2, 19),
@@ -294,6 +301,7 @@ function getStage(stageID)
                   sceneText : scenarioTextLost[3]}
               }
         case 14:
+        levelThreeBackgroundSwap()
         return{
           sceneText : getSceneText(3, 1),
           optionLeft : getOptionText(3, 1) ,
@@ -307,19 +315,23 @@ function getStage(stageID)
           return { isdead : true,
           sceneText : scenarioTextLost[4]}
         }
-        case 16:
+      case 16:
         if(RandomNum() >= 50)
         {
         playerDeath();
         return { isdead : true,
             sceneText : scenarioTextLost[5]}
         }
+        gameWin();
         return {
           sceneText : getSceneText(3, 2)
-        };
+
+        }
+
+      }
 
     }
-}
+
 function characterSceneCleanup(){
     $("#gameArea").fadeIn(2000); // game area fades in
     $("#startGame").remove(); // removes the filter
@@ -408,13 +420,24 @@ function RandomNum()
     let chance = Math.floor((Math.random() * 100) * 1); // calculates the chance of an event happening
     return chance;
 }
+function levelTwoBackgroundSwap(){
+    $("#gameArea").css("background-image", "url('images/BackDrops/backdrop3.png')");
+}
+function levelThreeBackgroundSwap(){
+    $("#gameArea").css("background-image", "url('images/BackDrops/backdrop1.jpg')");
+}
 function playerDeath()
 {
-    $("#leftChoice, #currentPlayer, #rightChoice").fadeOut(2000);
+    $("#leftChoice, #currentPlayer, #rightChoice").fadeOut(5);
+    $("#gameArea").css("background-image", "url('images/BackDrops/lost.png')");
 }
 function sideBoxesFadeOut()
 {
-    $("#leftChoice, #rightChoice").fadeOut(2000);
+    $("#leftChoice, #rightChoice").fadeOut(5);
+}
+function gameWin(){
+  $("#leftChoice, #currentPlayer, #rightChoice, #footer,").fadeOut(5);
+  $("#gameArea").css("background-image", "url('images/BackDrops/won.png')");
 }
 // changes text to this specific value in array
 function changeText(left, right, story)
