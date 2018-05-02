@@ -335,7 +335,7 @@ function characterSceneCleanup() {
     $("#gameArea").fadeIn(); // game area fades in
     $("#startGame").remove(); // removes the filter
     $("#gameArea").append('<audio autoplay="true" src="sources/sounds/Sled.mp3" type="audio/mpeg"></audio>');
-    $("#event").text("Welcome to Pinguins: A Choose Your Own Adventure Game.");
+    $("#event").text("Welcome to Pinguins: A Choose Your Own Adventure Game. Click here at any time to start over.");
 }
 
 //Used by Character Selector and the loadSaveHandler to set the game character
@@ -418,6 +418,7 @@ $("#gameArea").css("background-image", "url('images/BackDrops/backdrop1.jpg')");
 function playerDeath()
 {
 $("#leftChoice, #currentPlayer, #rightChoice").remove();
+$("#event").text("Oh no! Click here to play again!");
 $("#gameArea").css("background-image", "url('images/BackDrops/lost.png')");
         localStorage.setItem("stage", 0);
 }
