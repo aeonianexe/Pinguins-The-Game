@@ -26,12 +26,12 @@ this.getLevel1 = function()
     switch(SceneID)
     {
         case 0:
-            return "As the sun rises on the island, the penguins discover that they're far away from home.They notice" +
-            "that all of their penguin friends are gone. They are alone. Click a selection above to decide what the penguins should do.";
+            return "As the sun rises on the island, the pinguins discover that they're far away from home.They notice" +
+            "that all of their pinguin friends are gone. They are alone. Click a selection above to decide what the pinguins should do.";
 
         // scenario text
         case 1:
-        return "As the sun rises on the island, the pinguins discover that they are far away from home; they notice that all of their pinguin friends are gone- They are alone. Click a selection above to decide what the penguins should do.";
+        return "As the sun rises on the island, the pinguins discover that they are far away from home; they notice that all of their pinguin friends are gone- They are alone. Click a selection above to decide what the pinguins should do.";
 
         // polar bear
         case 2:
@@ -471,7 +471,7 @@ $(document).ready(function () {
     var stageObj = getStage(stage); //Get Actual Stage Object
     changeText(stageObj.optionLeft,stageObj.optionRight,stageObj.sceneText); // Change Text to Saved Level
     characterSceneCleanup();
-    var p = localStorage.getItem("pinguin")*1; //load penguin from storage
-    setCharacterBackground(p); // set penguin
+    var p = localStorage.getItem("pinguin")*1; //load pinguin from storage
+    setCharacterBackground(p); // set pinguin
     }
 });
