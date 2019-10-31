@@ -5,17 +5,19 @@ var randomEncounterText = [];
 var fullGameArea = "";
 
 // all text that includes pinguins brutal demise
-scenarioTextLost[0] = "The pinguins eventually get tired and can no longer find any way to survive. You lose.";
-scenarioTextLost[1] = "The pinguins are tired and encounter sharks. They don't have enough energy to get home. You lose.";
-scenarioTextLost[2] = "The pinguins were not fast enough, and could not escape the seals. You lose.";
-scenarioTextLost[3] = "The pinguins avoid the sharks, but a whale swallows the boat (and the pinguins.) You Lose.";
-scenarioTextLost[4] = "They call for help to the pinguins on their home island, hoping someguin will hear, but noguin did. They never made it home. You lose.";
-scenarioTextLost[5] = "TThe pinguins put forth their best effort, but were killed by all the trash. You lose.";
+ ScenarioTextLost = 
+ ["The pinguins eventually get tired and can no longer find any way to survive. You lose.",
+  "The pinguins are tired and encounter sharks. They don't have enough energy to get home. You lose.",
+  "The pinguins were not fast enough, and could not escape the seals. You lose.", 
+  "The pinguins avoid the sharks, but a whale swallows the boat (and the pinguins.) You Lose.", 
+  "They call for help to the pinguins on their home i…ut noguin did. They never made it home. You lose.", 
+  "TThe pinguins put forth their best effort, but were killed by all the trash. You lose."]
 
 // all random encounter dialog here
-randomEncounterText[0] = "The pinguins encounter a polar bear and ask for ride.";
-randomEncounterText[1] = "The boat breaks and there are sharks in the distance. The pinguins have to swim away!";
-randomEncounterText[2] = "The boat survives! However there are sharks in te distance and the pinguins have to make a decision.";
+readonEncounterText = 
+["The pinguins encounter a polar bear and ask for ride.",
+"The boat breaks and there are sharks in the distance. The pinguins have to swim away!",
+"The boat survives! However there are sharks in te distance and the pinguins have to make a decision."]
 
 //returns text based on level and scene
 function getSceneText(LevelID, SceneID)
