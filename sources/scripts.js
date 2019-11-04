@@ -1,11 +1,9 @@
 var scenarioText = [];
-var scenarioTextLost = [];
 var userOptions = [];
-var randomEncounterText = [];
 var fullGameArea = "";
 
 // all text that includes pinguins brutal demise
- ScenarioTextLost = 
+ var ScenarioTextLost = 
  ["The pinguins eventually get tired and can no longer find any way to survive. You lose.",
   "The pinguins are tired and encounter sharks. They don't have enough energy to get home. You lose.",
   "The pinguins were not fast enough, and could not escape the seals. You lose.", 
@@ -14,7 +12,7 @@ var fullGameArea = "";
   "TThe pinguins put forth their best effort, but were killed by all the trash. You lose."]
 
 // all random encounter dialog here
-readonEncounterText = 
+var readonEncounterText = 
 ["The pinguins encounter a polar bear and ask for ride.",
 "The boat breaks and there are sharks in the distance. The pinguins have to swim away!",
 "The boat survives! However there are sharks in te distance and the pinguins have to make a decision."]
